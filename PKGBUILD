@@ -4,7 +4,7 @@
 buildarch=8
 
 pkgname=uboot-renegade
-_pkgname=u-boot
+_pkgname=u-boot-rockchip
 pkgver=20201113
 pkgrel=1
 pkgdesc="U-Boot for ROC-RK3328-CC"
@@ -12,9 +12,9 @@ arch=('aarch64')
 url='http://www.denx.de/wiki/U-Boot/WebHome'
 license=('GPL')
 backup=('boot/boot.txt' 'boot/boot.scr')
-makedepends=('bc' 'git' 'rockchip-tools')
+makedepends=('bc' 'git' 'swig' 'rockchip-tools')
 install=${pkgname}.install
-source=("git+https://gitlab.denx.de/u-boot/custodians/u-boot-rockchip.git#branch=u-boot-rockchip-20201113"
+source=("git+https://gitlab.denx.de/u-boot/custodians/u-boot-rockchip.git#tag=u-boot-rockchip-${pkgver}"
         'rk3328trust.ini'
         'boot.txt'
         'mkscr'
