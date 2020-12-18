@@ -1,7 +1,7 @@
-From 712e96e6f1c0e2c280a66c0e690bbdd07de2de9a Mon Sep 17 00:00:00 2001
+From e349a12ebebd199f3f699690a8709d16865bb015 Mon Sep 17 00:00:00 2001
 From: magic0whi <lollipop.studio.cn@gmail.com>
 Date: Sun, 30 Jun 2019 12:09:55 +0000
-Subject: [PATCH 11/11] Revert "spl: fit: all rockchip based soc use dram as
+Subject: [PATCH 09/16] Revert "spl: fit: all rockchip based soc use dram as
  sram bounce buffer for"
 
 This reverts commit 63363c40ff9e9aa3e6b27d10c6ad9ea9b4b45217.
@@ -10,18 +10,18 @@ This reverts commit 63363c40ff9e9aa3e6b27d10c6ad9ea9b4b45217.
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/common/spl/spl_fit.c b/common/spl/spl_fit.c
-index 7203d30d78..d65cbb1ae6 100644
+index 59403c9883..48841995bd 100644
 --- a/common/spl/spl_fit.c
 +++ b/common/spl/spl_fit.c
-@@ -197,7 +197,7 @@ static int spl_load_fit_image(struct spl_load_info *info, ulong sector,
+@@ -215,7 +215,7 @@ static int spl_load_fit_image(struct spl_load_info *info, ulong sector,
  			return -ENOENT;
  
- 		load_ptr = (load_addr + align_len) & ~align_len;
+ 		load_ptr = (comp_addr + align_len) & ~align_len;
 -#if  defined(CONFIG_ARCH_ROCKCHIP)
 +#if  defined(CONFIG_ROCKCHIP_RK3399) || defined(CONFIG_ROCKCHIP_RK3368)
- 		if ((load_ptr & 0xffff0000) == CONFIG_ROCKCHIP_IRAM_START_ADDR)
+ 		if ((load_ptr < CONFIG_SYS_SDRAM_BASE) ||
+ 		     (load_ptr >= CONFIG_SYS_SDRAM_BASE + SDRAM_MAX_SIZE))
  			load_ptr = (ulong)memalign(ARCH_DMA_MINALIGN, len);
- #endif
 -- 
-2.21.0
+2.29.2
 

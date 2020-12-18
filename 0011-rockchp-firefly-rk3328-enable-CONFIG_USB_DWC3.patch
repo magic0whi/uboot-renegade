@@ -1,0 +1,52 @@
+From 7a823216724f0664126600e9a9c2df4a1fe885c1 Mon Sep 17 00:00:00 2001
+From: magic0whi <lollipop.studio.cn@gmail.com>
+Date: Fri, 18 Dec 2020 10:28:21 +0800
+Subject: [PATCH 11/16] rockchp: firefly-rk3328: enable CONFIG_USB_DWC3
+
+---
+ Makefile                         | 1 +
+ configs/firefly-rk3328_defconfig | 5 +----
+ 2 files changed, 2 insertions(+), 4 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index de68fa12be..04b5e90997 100644
+--- a/Makefile
++++ b/Makefile
+@@ -359,6 +359,7 @@ KBUILD_CPPFLAGS := -D__KERNEL__ -D__UBOOT__
+ 
+ KBUILD_CFLAGS   := -Wall -Wstrict-prototypes \
+ 		   -Wno-format-security \
++		   -Wno-error=address-of-packed-member \
+ 		   -fno-builtin -ffreestanding
+ KBUILD_CFLAGS	+= -fshort-wchar -Werror
+ KBUILD_AFLAGS   := -D__ASSEMBLY__
+diff --git a/configs/firefly-rk3328_defconfig b/configs/firefly-rk3328_defconfig
+index 0a03021a60..90111307e9 100644
+--- a/configs/firefly-rk3328_defconfig
++++ b/configs/firefly-rk3328_defconfig
+@@ -6,7 +6,6 @@ CONFIG_SYS_MALLOC_F_LEN=0x2000
+ CONFIG_SPL_FIT_GENERATOR="arch/arm/mach-rockchip/make_fit_atf.py"
+ CONFIG_ROCKCHIP_RK3328=y
+ CONFIG_ROCKCHIP_SPL_RESERVE_IRAM=0x0
+-CONFIG_RKIMG_BOOTLOADER=y
+ CONFIG_ROCKCHIP_VENDOR_PARTITION=y
+ CONFIG_TPL_LIBCOMMON_SUPPORT=y
+ CONFIG_TPL_LIBGENERIC_SUPPORT=y
+@@ -93,13 +92,11 @@ CONFIG_USB_EHCI_GENERIC=y
+ CONFIG_USB_OHCI_HCD=y
+ CONFIG_USB_OHCI_GENERIC=y
+ CONFIG_USB_DWC2=y
++CONFIG_USB_DWC3=y
+ CONFIG_USB_STORAGE=y
+ CONFIG_USB_GADGET=y
+ CONFIG_USB_GADGET_DWC2_OTG=y
+ CONFIG_USB_GADGET_DOWNLOAD=y
+-CONFIG_G_DNL_MANUFACTURER="Rockchip"
+-CONFIG_G_DNL_VENDOR_NUM=0x2207
+-CONFIG_G_DNL_PRODUCT_NUM=0x330a
+ CONFIG_DM_VIDEO=y
+ CONFIG_DISPLAY=y
+ CONFIG_DRM_ROCKCHIP=y
+-- 
+2.29.2
+

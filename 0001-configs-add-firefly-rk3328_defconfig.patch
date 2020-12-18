@@ -1,7 +1,7 @@
-From 8c6ab43b594b6ffcb6386cb0e9748f6fdeb942b3 Mon Sep 17 00:00:00 2001
+From 007eea51cb8bd86ea7551771f3dc3e4e07293fb9 Mon Sep 17 00:00:00 2001
 From: daijh <service@t-firefly.com>
 Date: Wed, 6 Mar 2019 11:57:28 +0800
-Subject: [PATCH 01/11] configs: add firefly-rk3328_defconfig
+Subject: [PATCH 01/16] configs: add firefly-rk3328_defconfig
 
 Change-Id: I960de919ac2bc8c465c28c792945c5d210eb35b9
 ---
@@ -137,5 +137,5 @@ index 0000000000..d49bd804e7
 +CONFIG_ERRNO_STR=y
 +CONFIG_TEST_ROCKCHIP=y
 -- 
-2.21.0
+2.29.2
 

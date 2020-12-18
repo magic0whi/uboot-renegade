@@ -1,7 +1,7 @@
-From 745d19172689a6a2fd5d4607c6be750a58f85cb8 Mon Sep 17 00:00:00 2001
+From 914242c611c061ae90bbe11f7eb864e27cf48e4e Mon Sep 17 00:00:00 2001
 From: daijh <service@t-firefly.com>
 Date: Sat, 16 Mar 2019 15:29:46 +0800
-Subject: [PATCH 05/11] arm: dts: set usb vbus-supply & use uboot dtb
+Subject: [PATCH 05/16] arm: dts: set usb vbus-supply & use uboot dtb
 
 Change-Id: I5116a4af65e082014211dfc29c13661d4e574119
 ---
@@ -44,5 +44,5 @@ index bb72dd761a..42c3e75c11 100644
 -
 +CONFIG_USING_KERNEL_DTB=n
 -- 
-2.21.0
+2.29.2
 

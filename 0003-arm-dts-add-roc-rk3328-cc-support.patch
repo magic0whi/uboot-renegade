@@ -1,7 +1,7 @@
-From e0b33e06330c734e9da182572e11da85746decd1 Mon Sep 17 00:00:00 2001
+From 75a17f1996d8cfbcce7b1d729b0338ce38a26c26 Mon Sep 17 00:00:00 2001
 From: daijh <service@t-firefly.com>
 Date: Tue, 12 Mar 2019 11:01:48 +0800
-Subject: [PATCH 03/11] arm: dts: add roc-rk3328-cc support
+Subject: [PATCH 03/16] arm: dts: add roc-rk3328-cc support
 
 Change-Id: I1aa7dd3ffb523d46ee364475bab88d5491ebf26a
 ---
@@ -277,5 +277,5 @@ index 0000000000..4fbf278e55
 +};
 +
 -- 
-2.21.0
+2.29.2
 

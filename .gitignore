@@ -1,0 +1,11 @@
+*
+!/*.patch
+!/*.elf
+!/*.bin
+!/*.ini
+!/*.install
+!/boot.txt
+!/mkscr
+!/PKGBUILD
+!/README.md
+!/.gitignore

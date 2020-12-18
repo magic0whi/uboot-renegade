@@ -1,7 +1,7 @@
-From 425f534c7c2988eb789d213cbae3dc174bc55d33 Mon Sep 17 00:00:00 2001
+From a9b3e1b0157bd49a530c37a403426ddbb0833b48 Mon Sep 17 00:00:00 2001
 From: daijh <service@t-firefly.com>
 Date: Fri, 29 Mar 2019 11:30:13 +0800
-Subject: [PATCH 07/11] configs: rk3328: add pinctrl in spl dtb & make
+Subject: [PATCH 07/16] configs: rk3328: add pinctrl in spl dtb & make
  savedefconfig
 
 Change-Id: I23a8b258bd008f56f3578c1edb79a70e87dacd3d
@@ -72,5 +72,5 @@ index 42c3e75c11..8338c53fa8 100644
 -CONFIG_ADC=y
 -CONFIG_USING_KERNEL_DTB=n
 -- 
-2.21.0
+2.29.2
 

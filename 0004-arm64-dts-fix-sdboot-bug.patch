@@ -1,7 +1,7 @@
-From b2b6ea257fc904bbbaeaf04a6183cc7448429d3a Mon Sep 17 00:00:00 2001
+From c237f34ef911f20dfa077021e77cbdaeb30c4f54 Mon Sep 17 00:00:00 2001
 From: daijh <service@t-firefly.com>
 Date: Fri, 15 Mar 2019 15:18:23 +0800
-Subject: [PATCH 04/11] arm64: dts: fix sdboot bug
+Subject: [PATCH 04/16] arm64: dts: fix sdboot bug
 
 Change-Id: If57d4d5c15afadf71b0484181e6031f73ca9d608
 ---
@@ -56,5 +56,5 @@ index a5d46f899a..bb72dd761a 100644
  CONFIG_TPL_SYS_MALLOC_F_LEN=0x600
  CONFIG_FIT=y
 -- 
-2.21.0
+2.29.2
 

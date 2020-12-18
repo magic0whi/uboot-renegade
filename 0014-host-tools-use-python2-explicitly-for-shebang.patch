@@ -1,7 +1,7 @@
-From a842e7c872e6aa3e1d6d2ade3b360088851a9b6c Mon Sep 17 00:00:00 2001
+From 93eb1e77ee768e05031c4438a935b1cabd592bd1 Mon Sep 17 00:00:00 2001
 From: Masahiro Yamada <yamada.masahiro@socionext.com>
 Date: Sun, 21 Jan 2018 18:34:57 +0900
-Subject: [PATCH 10/11] host-tools: use python2 explicitly for shebang
+Subject: [PATCH 14/16] host-tools: use python2 explicitly for shebang
 
 All of these host tools are apparently written for Python2,
 not Python3.
@@ -103,5 +103,5 @@ index 39173359ca..11c192a073 100755
  # Script to create enums from datasheet register tables
  #
 -- 
-2.21.0
+2.29.2
 

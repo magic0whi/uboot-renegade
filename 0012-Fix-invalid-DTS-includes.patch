@@ -1,0 +1,52 @@
+From 42c82c026775b13711b72a200f1ee844966e6c55 Mon Sep 17 00:00:00 2001
+From: magic0whi <lollipop.studio.cn@gmail.com>
+Date: Fri, 18 Dec 2020 14:14:25 +0800
+Subject: [PATCH 12/16] Fix invalid DTS includes
+
+---
+ scripts/Kbuild.include | 5 +++--
+ scripts/Makefile.lib   | 2 +-
+ 2 files changed, 4 insertions(+), 3 deletions(-)
+
+diff --git a/scripts/Kbuild.include b/scripts/Kbuild.include
+index 2c7918ad37..13ebddda65 100644
+--- a/scripts/Kbuild.include
++++ b/scripts/Kbuild.include
+@@ -7,6 +7,7 @@ quote   := "
+ squote  := '
+ empty   :=
+ space   := $(empty) $(empty)
++pound := \#
+ 
+ ###
+ # Name of target with a '.' as filename prefix. foo/bar.o => foo/.bar.o
+@@ -242,11 +243,11 @@ endif
+ 
+ # Replace >$< with >$$< to preserve $ when reloading the .cmd file
+ # (needed for make)
+-# Replace >#< with >\#< to avoid starting a comment in the .cmd file
++# Replace >#< with >$(pound)< to avoid starting a comment in the .cmd file
+ # (needed for make)
+ # Replace >'< with >'\''< to be able to enclose the whole string in '...'
+ # (needed for the shell)
+-make-cmd = $(call escsq,$(subst \#,\\\#,$(subst $$,$$$$,$(cmd_$(1)))))
++make-cmd = $(call escsq,$(subst $(pound),$$(pound),$(subst $$,$$$$,$(cmd_$(1)))))
+ 
+ # Find any prerequisites that is newer than target or that does not exist.
+ # PHONY targets skipped in both cases.
+diff --git a/scripts/Makefile.lib b/scripts/Makefile.lib
+index 12d1123a07..a384b41898 100644
+--- a/scripts/Makefile.lib
++++ b/scripts/Makefile.lib
+@@ -308,7 +308,7 @@ quiet_cmd_dtc = DTC     $@
+ # Modified for U-Boot
+ # Bring in any U-Boot-specific include at the end of the file
+ cmd_dtc = mkdir -p $(dir ${dtc-tmp}) ; \
+-	(cat $<; $(if $(u_boot_dtsi),echo '\#include "$(u_boot_dtsi)"')) > $(pre-tmp); \
++	(cat $<; $(if $(u_boot_dtsi),echo '$(pound)include "$(u_boot_dtsi)"')) > $(pre-tmp); \
+ 	$(CPP) $(dtc_cpp_flags) -x assembler-with-cpp -o $(dtc-tmp) $(pre-tmp) ; \
+ 	$(DTC) -O dtb -o $@ -b 0 \
+ 		-i $(dir $<) $(DTC_FLAGS) \
+-- 
+2.29.2
+
